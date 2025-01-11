@@ -3,9 +3,10 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
+    domains: [], // Add any image domains you're using
   },
   trailingSlash: true,
-  assetPrefix: './',
+  assetPrefix: process.env.NODE_ENV === 'production' ? './' : '',
 }
 
 module.exports = nextConfig

@@ -8,6 +8,7 @@
 
 # production
 /build
+/out
 
 # misc
 .DS_Store
@@ -18,3 +19,7 @@ npm-debug.log
 #nextjs
 .next/
 .swc/
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json
+adarutoai-*.json

@@ -28,13 +28,9 @@ jobs:
 
       - name: Build and Export project
         run: |
-          yarn run export || {
-            echo "Build failed. Showing detailed error output:"
-            cat .next/error.log || true
-            exit 1
-          }
+          yarn run export
         env:
-          CI: true
+          # CI: true
           NODE_ENV: production
 
       - name: Authenticate to Google Cloud

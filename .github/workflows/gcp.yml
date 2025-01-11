@@ -31,7 +31,7 @@ jobs:
         run: pnpm install
 
       - name: Get env info
-        run: pnpm info
+        run: yarn run next info
 
       - name: Build and Export project
         run: pnpm export

@@ -21,18 +21,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       - name: Build and Export project
-        run: |
-          npm run export || {
-            echo "Build failed. Checking for type errors..."
-            npx tsc --noEmit
-            exit 1
-          }
+        run: yarn run export
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

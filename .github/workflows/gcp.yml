@@ -26,11 +26,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Disable next.js telemetry
+        run: yarn next telemetry disable
+
       - name: Build and Export project
         run: |
-          yarn run export
+          yarn export
         env:
-          # CI: true
+          CI: true
           NODE_ENV: production
 
       - name: Authenticate to Google Cloud

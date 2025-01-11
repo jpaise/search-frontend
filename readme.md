@@ -1,4 +1,4 @@
-# Javai Search Frontend
+# Search Frontend
 
 ## Description
 A frontend application for Javai Search.
@@ -15,18 +15,16 @@ A frontend application for Javai Search.
    ```
 3. Install the dependencies:
    ```bash
-   npm install
+   yarn install
    ```
 
 ## Scripts
 
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the application for production.
-- `npm run start`: Start the production server.
+- `yarn run dev`: Start the development server.
+- `yarn run build`: Build the application for production.
+- `yarn run start`: Start the production server.
 
 
 ## Cloud
 
 The frontned is hosted on google cloud.
-
-

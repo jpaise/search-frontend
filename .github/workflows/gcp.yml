@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Get env info
+        run: yarn info
+
       - name: Build and Export project
         run: pnpm export
 

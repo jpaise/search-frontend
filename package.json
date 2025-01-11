@@ -11,7 +11,8 @@
     "export": "next build",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "info": "next info"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 'use client'
 
-import React,{ useState } from 'react'
-import { SearchResult } from '@/types'
+import { useState } from 'react'
+import { SearchResult } from '../types/search'
 
 function truncateWords(text: string, limit: number): string {
   const words = text.split(' ')

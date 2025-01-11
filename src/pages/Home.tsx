@@ -1,5 +1,4 @@
-import React from 'react'
-import TopSearchBar from '@/components/TopSearchBar'
+import TopSearchBar from '../components/TopSearchBar'
 
 export default function Home() {
   return (

@@ -1,17 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { Search, X } from 'lucide-react'
 
 export default function TopSearchBar({ initialQuery }: { initialQuery: string }) {
   const [query, setQuery] = useState(initialQuery)
-  const router = useRouter()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (query.trim()) {
-      router.push(`/results?q=${encodeURIComponent(query)}`)
+      window.location.href = `/results?q=${encodeURIComponent(query)}`
     }
   }
 

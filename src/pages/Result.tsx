@@ -1,14 +1,12 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
-import TopSearchBar from '@/components/TopSearchBar'
-import ResultsList from '@/components/ResultsList'
-import { mockSearchResults } from '@/mocks/searchResults'
 import { Suspense } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import TopSearchBar from '../components/TopSearchBar'
+import ResultsList from '../components/ResultsList'
+import { mockSearchResults } from '../mocks/searchResults'
 
 // Create a separate component for the content that uses useSearchParams
 function ResultsContent() {
-  const searchParams = useSearchParams()
+  const [searchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
   const results = mockSearchResults
 
@@ -23,7 +21,7 @@ function ResultsContent() {
 }
 
 // Main page component with Suspense boundary
-export default function ResultsPage() {
+export default function Results() {
   return (
     <main className="min-h-screen bg-white p-8">
       <Suspense fallback={

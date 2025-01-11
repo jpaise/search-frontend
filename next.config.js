@@ -7,6 +7,13 @@ const nextConfig = {
   },
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? './' : '',
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = nextConfig

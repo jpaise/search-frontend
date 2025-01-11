@@ -30,11 +30,7 @@ jobs:
         run: yarn next telemetry disable
 
       - name: Build and Export project
-        run: |
-          yarn export
-        env:
-          CI: true
-          NODE_ENV: production
+        run: yarn export
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

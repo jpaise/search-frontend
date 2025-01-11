@@ -27,7 +27,12 @@ jobs:
         run: npm install
 
       - name: Build and Export project
-        run: npm run export
+        run: |
+          npm run export || {
+            echo "Build failed. Checking for type errors..."
+            npx tsc --noEmit
+            exit 1
+          }
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

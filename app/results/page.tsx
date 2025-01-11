@@ -1,34 +1,41 @@
 'use client'
 
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import TopSearchBar from '@/components/TopSearchBar'
+import ResultsList from '@/components/ResultsList'
+import { mockSearchResults } from '@/mocks/searchResults'
+import { Suspense } from 'react'
 
-export default function SearchBar() {
-  const [query, setQuery] = useState('')
-  const router = useRouter()
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (query.trim()) {
-      router.push(`/results?q=${encodeURIComponent(query)}`)
-    }
-  }
+// Create a separate component for the content that uses useSearchParams
+function ResultsContent() {
+  const searchParams = useSearchParams()
+  const query = searchParams.get('q') || ''
+  const results = mockSearchResults
 
   return (
-    <form onSubmit={handleSearch} className="flex w-full">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Enter your search query"
-        className="flex-grow rounded-l-lg border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-      />
-      <button
-        type="submit"
-        className="rounded-r-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none"
-      >
-        Search
-      </button>
-    </form>
+    <div className="mx-auto max-w-4xl">
+      <div className="mb-8">
+        <TopSearchBar initialQuery={query} />
+      </div>
+      <ResultsList results={results} />
+    </div>
+  )
+}
+
+// Main page component with Suspense boundary
+export default function ResultsPage() {
+  return (
+    <main className="min-h-screen bg-white p-8">
+      <Suspense fallback={
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8">
+            <TopSearchBar initialQuery="" />
+          </div>
+          <div>Loading...</div>
+        </div>
+      }>
+        <ResultsContent />
+      </Suspense>
+    </main>
   )
 }

@@ -24,10 +24,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install
-
-      - name: Disable next.js telemetry
-        run: yarn next telemetry disable
+        run: yarn install --frozen-lockfile
 
       - name: Build and Export project
         run: yarn export
